@@ -50,7 +50,9 @@ function addCommentaire(PDO $db,string $email, string $fullName, string $title, 
 
 function readAllCommentaires(PDO $db): array{
     $request = $db->query("SELECT * FROM `commentaire` ORDER BY `post_date` DESC");
-    return $request->fetchALL(PDO::FETCH_ASSOC);
+    $result = $request->fetchALL(PDO::FETCH_ASSOC);
+    $request->closecursor();
+    return $result;
 }
 
 function countAllCommentaires(PDO $db): int

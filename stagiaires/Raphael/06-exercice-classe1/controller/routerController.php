@@ -57,3 +57,6 @@ if(!isset($_GET['page'])){
     include PROJECT_PATH."/view/404.php";
 
 }
+
+// bonne pratique, fermeture de connexion
+$connectDB = null;
